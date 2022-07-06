@@ -5,6 +5,7 @@ export default defineUserConfig({
   lang: 'zh-CN', // 语言
   title: "Szq233's Blog", // 标题
   description: 'szq233的博客', // 描述，对应meta标签中的content，利于seo优化
+  base: '/my-vp-blog.io/',
   locales: {
     // 键名是该语言所属的子路径
     // 作为特例，默认语言可以使用 '/' 作为其路径。
