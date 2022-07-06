@@ -4,11 +4,13 @@ specifiers:
   '@vuepress/client': ^2.0.0-beta.42
   oh-vue-icons: 1.0.0-rc3
   vue: ^3.2.36
+  vue-router: ^4.1.1
   vuepress: 2.0.0-beta.48
   vuepress-theme-gungnir: ^2.0.0-alpha.25
 
 dependencies:
   oh-vue-icons: 1.0.0-rc3_vue@3.2.37
+  vue-router: 4.1.1_vue@3.2.37
 
 devDependencies:
   '@vuepress/client': 2.0.0-beta.48
@@ -1480,7 +1482,6 @@ packages:
 
   /@vue/devtools-api/6.2.0:
     resolution: {integrity: sha512-pF1G4wky+hkifDiZSWn8xfuLOJI1ZXtuambpBEYaf7Xaf6zC/pM29rvAGpd3qaGXnr4BAXU1Pxz/VfvBGwexGA==}
-    dev: true
 
   /@vue/reactivity-transform/3.2.37:
     resolution: {integrity: sha512-IWopkKEb+8qpu/1eMKVeXrK0NLw9HicGviJzhJDEyfxTR9e1WtpnnbYkJWurX6WwoFP0sz10xQg8yL8lgskAZg==}
@@ -4428,7 +4429,6 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.2.0
       vue: 3.2.37
-    dev: true
 
   /vue/3.2.37:
     resolution: {integrity: sha512-bOKEZxrm8Eh+fveCqS1/NkG/n6aMidsI6hahas7pa0w/l7jkbssJVsRhVDs07IdDq7h9KHswZOgItnwJAgtVtQ==}
