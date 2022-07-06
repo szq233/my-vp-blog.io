@@ -46,4 +46,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/.vuepress/dist  # 静态文件生成目录
-          cname: szq233.top  # 你网站的域名
+          # cname: szq233.top  # 你网站的域名
