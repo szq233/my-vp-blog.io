@@ -1,42 +1,49 @@
-name: 部署文档
+# .github/workflows/deploy.yaml
+
+name: build-and-deploy
 
 on:
   push:
-    branches:
-      # 确保这是你正在使用的分支名称
-      - main
+    branches: [ main ]  # main 分支有 commit 时自动触发该 workflow
 
 jobs:
-  deploy-gh-pages:
+  build-and-deploy:
+    # 配置运行该 workflow 的系统
     runs-on: ubuntu-latest
+
+    env:
+      NODE_VERSION: '16'
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          # 如果你文档需要 Git 子模块，取消注释下一行
-          # submodules: true
 
+      # 安装 pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7
-          run_install: true
+          version: 6
 
+      # 配置 Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
 
-      - name: Build Docs
-        env:
-          NODE_OPTIONS: --max_old_space_size=8192
-        run: pnpm docs:build
+      # 安装依赖
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
+      # 打包并生成静态文件
+      - name: Build site
+        run: pnpm build
+
+      # 推送静态文件到 gh-pages 分支
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          # 这是文档部署到的分支名称
-          branch: gh-pages
-          folder: docs/.vuepress/dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/.vuepress/dist  # 静态文件生成目录
+          cname: szq233.top  # 你网站的域名
