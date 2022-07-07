@@ -19,4 +19,6 @@ hide: true  # 是否在首页和标签页博客列表中隐藏这篇博客（可
 Hello，VuePress
 :::
 
+<Badge type="danger" text="v2" vertical="bottom" />
+
 ## 技术
